@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  resources :users, only: [:new, :create, :show]
+  resources :users, only: [:index, :new, :create, :show]
   resources :sessions, only: [:new, :create, :destroy]
+
+  post '/attend', to: 'events#attend'
 
   resources :events, only: [:index, :new, :create, :show]
   

@@ -1,6 +1,22 @@
 <h1><%= @user.name %></h1>
+
+<h1>Created Events</h1>
 <ul>
   <% @user.created_events.each do |event| %>
+    <li><%= link_to event.title, event %></li>
+    <li><%= event.description %></li>
+    <li><%= event.location %></li>
+    <li><%= event.date %></li>
+
+    <li><%= link_to 'Invite', "#{users_path}?event_id=#{event.id}" %></li>
+    <hr>
+    <br>
+  <% end %>
+</ul>
+
+<h1>Attended Events</h1>
+<ul>
+  <% @user.attended_events.each do |event| %>
     <li><%= link_to event.title, event %></li>
     <li><%= event.description %></li>
     <li><%= event.location %></li>
@@ -14,7 +30,7 @@
 <ul>
   <% @past_events.each do |event| %>
     <%= link_to event.title, event %>
-  <% end %>
+ <% end %>
 </ul>
 
 <h3>Upcoming Events</h3>

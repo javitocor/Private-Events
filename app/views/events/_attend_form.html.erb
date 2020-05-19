@@ -1,0 +1,6 @@
+<%= form_with(url: attend_path, scope: :attend, local: true) do |f| %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.hidden_field :event_id, value: params[:id] %>
+
+  <%= f.submit "Attend" %>
+<% end %>

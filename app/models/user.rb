@@ -3,11 +3,11 @@ class User < ApplicationRecord
   has_many :attendances, foreign_key: :attended_event_id
   has_many :attended_events, through: :attendances, source: :attended_event
 
-  def self.past_events
-    where('date < ?', Date.today) 
+  def past_events
+    attended_events.where('date < ?', Date.today) 
   end
 
-  def self.upcoming_events
-    where('date > ?', Date.today)
+  def upcoming_events
+    attended_events.where('date > ?', Date.today)
   end
 end

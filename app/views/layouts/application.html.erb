@@ -10,6 +10,14 @@
   </head>
 
   <body>
+    <% if current_user.nil? %>
+        <%= link_to 'Sign Up', new_user_path %> | 
+        <%= link_to 'Log In', new_session_path %>
+      <% else %>
+        <%= current_user.name %>
+        <%= link_to 'Logout', logout_path, method: :delete %>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>

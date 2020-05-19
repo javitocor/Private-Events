@@ -1,15 +1,15 @@
 <%= form_with(model: @event, local: true) do |f| %>
   <%= f.label :title %>
-  <%= f.text_field :title %>
+  <%= f.text_field :title %> <br><br>
 
   <%= f.label :description %>
-  <%= f.text_area :description %>
+  <%= f.text_area :description %><br><br>
 
   <%= f.label :location %>
-  <%= f.text_field :location %>
+  <%= f.text_field :location %><br><br>
 
   <%= f.label :date %>
-  <%= f.datetime_select(:date, ampm: true, start_year: 2020) %>
+  <%= f.datetime_select(:date, ampm: true, start_year: 2020) %><br><br>
 
   <%= f.submit %>
 <% end %>

@@ -14,7 +14,8 @@
         <%= link_to 'Sign Up', new_user_path %> | 
         <%= link_to 'Log In', new_session_path %>
       <% else %>
-        <%= link_to current_user.name, current_user %>        
+        <%= link_to current_user.name, current_user %>  
+        <%= link_to 'New Event', new_event_path %>     
         <%= link_to 'Events', events_path %>        
         <%= link_to 'Logout', logout_path, method: :delete %>
     <% end %>

@@ -6,6 +6,7 @@
 <p><%= @event.location %></p>
 
 <p><%= @event.date %></p>
+<h4>Attendees</h4>
 <ul>
     <% @event.attendees.each do |attendee| %>
         <li><%= link_to attendee.name, attendee %></li>
@@ -13,5 +14,6 @@
 </ul>
 
 <%= render 'attend_form' %>
+<br>
 
 <%= link_to '<< Back', events_path %>

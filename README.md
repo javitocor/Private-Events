@@ -8,7 +8,6 @@ Once you have created an account, you will be able to create events, modify them
 - Ruby
 - Ruby on Rails
 - VSCode
-- Devise gem
 
 # Prerequisites
 - Get your browser up to date

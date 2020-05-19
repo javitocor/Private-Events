@@ -1,0 +1,10 @@
+<h1><%= @event.title %></h1>
+<p>Created by: <%= @event.creator.name %></p>
+
+<p><%= @event.description %></p>
+
+<p><%= @event.location %></p>
+
+<p><%= @event.date %></p>
+
+<%= link_to '<< Back', events_path %>

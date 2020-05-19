@@ -7,8 +7,6 @@
     <li><%= event.description %></li>
     <li><%= event.location %></li>
     <li><%= event.date %></li>
-
-    <li><%= link_to 'Invite', "#{users_path}?event_id=#{event.id}" %></li>
     <hr>
     <br>
   <% end %>
@@ -28,14 +26,14 @@
 
 <h3>Past Events</h3>
 <ul>
-  <% @past_events.each do |event| %>
-    <%= link_to event.title, event %>
+  <% @past_events.each do |event| %> 
+    <li><%= link_to event.title, event %>
  <% end %>
 </ul>
 
 <h3>Upcoming Events</h3>
 <ul>
   <% @upcoming_events.each do |event| %>
-    <%= link_to event.title, event %>
+    <li><%= link_to event.title, event %></li>
   <% end %>
 </ul>

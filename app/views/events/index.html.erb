@@ -1,7 +1,7 @@
 <h1>Events</h1>
 <ul>
   <% @events.each do |event| %>
-    <li><%= event.title %></li>
+    <li><%= link_to event.title, event %></li>
     <li><%= event.creator.name %></li>
     <li><%= event.description %></li>
     <li><%= event.location %></li>

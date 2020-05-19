@@ -1,7 +1,7 @@
 <h1><%= @user.name %></h1>
 <ul>
   <% @user.created_events.each do |event| %>
-    <li><%= event.title %></li>
+    <li><%= link_to event.title, event %></li>
     <li><%= event.description %></li>
     <li><%= event.location %></li>
     <li><%= event.date %></li>
@@ -9,4 +9,8 @@
     <br>
   <% end %>
 </ul>
-
+<ul>
+  <% @user.attended_events.each do |event| %>
+    <%= link_to event.title, event %>
+  <% end %>
+</ul>

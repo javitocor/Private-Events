@@ -38,4 +38,9 @@ RSpec.describe Event, type: :model do
       expect(Event.upcoming.size).to eq(1)
     end
   end
+  context 'Association tests' do
+    it { should have_many(:attendees) }
+    it { should have_many(:attendances) }
+    it { should belongs_to(:creator) }
+  end
 end

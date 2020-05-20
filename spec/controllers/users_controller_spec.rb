@@ -24,4 +24,18 @@ RSpec.describe UsersController, type: :controller do
     end
   end
 end
+
+
+RSpec.describe 'Sign up fields', type: :system do
+  describe 'fields in sign up page' do
+    it 'name field in signup page' do
+      visit new_user_path
+      expect(page).to have_content 'name'
+    end
+    it 'email field in signup page' do
+      visit new_user_path
+      expect(page).to have_content 'email'
+    end
+  end
+end
   

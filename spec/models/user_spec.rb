@@ -12,7 +12,11 @@ RSpec.describe User, type: :model do
       expect(@user).to eq(false)
     end
     it 'validate email format is correct' do 
-      @user = User.new(name: 'abc', email:'john.com').save
+      @user = User.new(name: 'abcde', email:'john.com').save
+      expect(@user).to eq(false)
+    end
+    it 'should not validate if the name is shorter than 4 characters' do 
+      @user = User.new(name: 'abc', email:'john@gmail.com').save
       expect(@user).to eq(false)
     end
   end
@@ -29,5 +33,10 @@ RSpec.describe User, type: :model do
     it 'should return upcoming events' do 
       expect(@user.upcoming_events.size).to eq(1)
     end
+  end
+  context 'Association tests' do
+    it { should have_many(:created_events) }
+    it { should have_many(:attendances) }
+    it { should have_many(:attended_events) }
   end
 end

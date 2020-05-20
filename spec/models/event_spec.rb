@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'capybara/rspec'
 
 RSpec.describe Event, type: :model do
   context 'validation tests' do 

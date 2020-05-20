@@ -1,7 +1,8 @@
 require 'rails_helper'
+require 'capybara/rspec'
 
 RSpec.describe UsersController, type: :controller do
-  context 'GET controller views' do 
+  context 'GET users controller views' do 
     it 'GET #index' do 
       get :index
       expect(response).to be_successful
@@ -11,7 +12,7 @@ RSpec.describe UsersController, type: :controller do
       get :show, params: { id: '1'}
       expect(response).to be_successful
     end
-    it 'GET #new' do 
+    it 'GET #new/sign up page' do 
       get :new
       expect(response).to be_successful
     end

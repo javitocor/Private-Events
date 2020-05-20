@@ -16,8 +16,6 @@ RSpec.describe EventsController, type: :controller do
       expect(response).to be_successful
     end
     it 'GET #new' do 
-      current_user = @user
-      @event = current_user.created_events.build
       get :new
       expect(response).to be_successful
     end

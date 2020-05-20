@@ -16,18 +16,17 @@ RSpec.describe User, type: :model do
     end
   end
 
-  context 'Validate model helper methods' do 
-    let (:user) { User.new(name: 'abc', email:'john@abc.com').save } 
-    let (:event) {Event.new(title: "Party", description: "party super cool", location: "gotham", date: "2020-05-19 01:00:00").save}
-    let (:attendance) {Attendance.new(attendee_id: user.id, attended_events_id: event.id)}
-
-    it 'validate past events' do       
-      expect(user.past_events).to eq(true)
+  context 'Validate model helper methods' do
+    before(:each) do 
+      @user = User.new(id:'1', name:'peter', email:'peter@gmail.com').save
+      @event = Event.new(id:'1', title: "Party", description: "party super cool", location: "gotham", date: "2023-05-19 01:00:00", creator_id:'1').save
+      Attendance.create(attendee_id: @user.id, attended_event_id: @event.id)
+    end 
+    it 'should return past events' do       
+      expect(@user.past_events.size).to eq(0)
     end
-    it 'validate upcoming events' do 
-      user.attended_events.create(title:'abdc', description:'asdasdas', location:'here', date: DateTime.parse('2023-02-03T04:05:06+07:00')
-    )
-    expect(user.upcoming_events).to eq(true)
+    it 'should return upcoming events' do 
+      expect(@user.upcoming_events.size).to eq(1)
     end
   end
 end

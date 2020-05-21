@@ -8,7 +8,7 @@ RSpec.describe User, type: :model do
       expect(@user).to eq(false)
     end
     it 'validate email is not empty' do 
-      @user = User.new(name: 'abc').save
+      @user = User.new(name: 'abcd').save
       expect(@user).to eq(false)
     end
     it 'validate email format is correct' do 
@@ -34,9 +34,9 @@ RSpec.describe User, type: :model do
       expect(@user.upcoming_events.size).to eq(1)
     end
   end
-  context 'Association tests' do
-    it { should have_many(:created_events) }
-    it { should have_many(:attendances) }
-    it { should have_many(:attended_events) }
+  context 'Associations tests' do
+    it { should have_many(:created_events).with_foreign_key('creator_id') }
+    it { should have_many(:attendances).with_foreign_key('attendee_id') }
+    it { should have_many(:attended_events).through(:attendances).source(:attended_event) }
   end
 end

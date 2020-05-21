@@ -17,11 +17,11 @@ RSpec.describe 'login followed by logout', type: :feature do
 end
 
 
-RSpec.describe 'Log in fields', type: :system do
+RSpec.describe 'Log in fields', type: :feature do
   describe 'fields in login page' do
     it 'name field in login page' do
       visit login_path
-      expect(page).to have_content 'name'
+      expect(page).to have_content 'Name'
     end
     
   end

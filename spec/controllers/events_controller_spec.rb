@@ -16,8 +16,8 @@ RSpec.describe EventsController, type: :controller do
       expect(response).to be_successful
     end
     it 'GET #new' do 
-      get :new
-      expect(response).to be_successful
+      current_user = @user
+      expect(get("/events/new")).to route_to("events#new")
     end
   end
   context 'Create an event' do 
@@ -27,13 +27,18 @@ RSpec.describe EventsController, type: :controller do
       expect(@event.save).to eq(true)
     end
   end
+  
+end
+
+RSpec.describe EventsController, type: :feature do
   context 'Attend an event' do 
     it 'should create and attendance for an event' do 
       @user = User.new(id:'1', name:'peter', email:'peter@gmail.com').save
-      @event = Event.new(id:'1', title: "Party", description: "party super cool", location: "gotham", date: "2023-05-19 01:00:00", creator_id:'1')
-      @attend = Attendance.new(attendee_id: @user.id, attended_event_id: @event.id)
+      @event = Event.new(id:'1', title: "Party", description: "party super cool", location: "gotham", date: "2023-05-19 01:00:00", creator_id:'1').save
+      @attend = Attendance.new(attendee_id: '1', attended_event_id: '1')
       expect(@attend.save).to eq(true)
     end
   end
 end
+
   

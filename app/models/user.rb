@@ -8,7 +8,7 @@ class User < ApplicationRecord
   has_many :attended_events, through: :attendances, source: :attended_event
 
   def past_events
-    attended_events.where('date < ?', Date.today) 
+    attended_events.where('date < ?', Date.today)
   end
 
   def upcoming_events

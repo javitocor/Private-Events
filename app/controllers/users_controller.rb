@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def index
     @users = User.all
-  end  
+  end
 
   def new
     @user = User.new
@@ -9,11 +9,11 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    if @user.save 
+    if @user.save
       login(@user)
       current_user
       redirect_to @user
-    else 
+    else
       render 'new'
     end
   end
@@ -30,8 +30,7 @@ class UsersController < ApplicationController
 
   private
 
-  def user_params 
+  def user_params
     params.require(:user).permit(:name, :email)
   end
-  
 end

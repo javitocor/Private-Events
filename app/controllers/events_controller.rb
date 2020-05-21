@@ -27,11 +27,7 @@ class EventsController < ApplicationController
   def attend
     attend = Attendance.create(attendee_id: params[:attend][:user_id], attended_event_id: params[:attend][:event_id])
 
-    if attend
-      flash[:success] = "Success"
-      redirect_to current_user
-    end
-    
+    return redirect_to current_user if attend
   end
 
   private

@@ -23,18 +23,7 @@ RSpec.describe UsersController, type: :controller do
       @user = User.new(id:'1', name:'peter', email:'peter@gmail.com')
       expect(@user.save).to eq(true)
     end
-  end
-
-  describe 'Create and redirect' do
-    subject { post :create, :params => { :user => {:name =>"Abcde", :email=>"abcde@gmail.com"}}}
-    it "redirects to user show page" do
-      expect(subject).to redirect_to  :action => :show,
-                                      :id => assigns(:user).id
-    end
-    it "redirects to user show page" do
-      expect(subject).to redirect_to(user_url(assigns(:user)))
-    end
-  end
+  end 
 end
 
 
@@ -48,5 +37,18 @@ RSpec.describe 'Sign up fields', type: :feature do
       visit new_user_path
       expect(page).to have_content 'Email'
     end
+  end
+end
+
+RSpec.describe 'create user and redirect to user show page', type: :feature do
+  let(:user) { User.create(name: 'Peter', email: 'peter@example.com') }
+
+  scenario 'create user' do
+    visit new_user_path
+    fill_in 'user_name', with: user.name
+    fill_in 'user_email', with: user.email
+    click_button 'Create User'
+    sleep(3)
+    expect(page).to have_content('Upcoming Hosted Events')    
   end
 end

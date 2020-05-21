@@ -2,12 +2,15 @@
 Project based on associations in RoR. Following the requirements in The Odin Project.
 
 # What it Does
-Once you have created an account, you will be able to create events, modify them and invite other users to the events. You will be able to see your past and upcoming events.
+Once you have created an account, you will be able to create events, modify them and invite other users to the events. You will be able to see your past and upcoming events, and all your created events.
 
 # Built With
 - Ruby
 - Ruby on Rails
 - VSCode
+- Rspec gem
+- Capybara gem
+- Shoulda-matchers gem
 
 # Prerequisites
 - Get your browser up to date
@@ -18,7 +21,7 @@ Once you have created an account, you will be able to create events, modify them
 - Git clone this repo and cd the to the  directory.
 - Run bundle install in command line
 - Run 'rails db:migrate' on your terminal
-- Sign up as a user, create events and invite other users.
+- Sign up as a user, create events and attend the events.
 
 
 ## Authors

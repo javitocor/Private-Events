@@ -1,0 +1,41 @@
+<h1><%= @user.name %></h1>
+
+<h1>Created Events</h1>
+<h2>Past Hosted Events</h2>
+<ul>
+  <% @past_created.each do |event| %>
+    <li><%= link_to event.title, event %></li>
+    <li><%= event.description %></li>
+    <li><%= event.location %></li>
+    <li><%= event.date %></li>
+    <hr>
+    <br>
+  <% end %>
+</ul>
+<h2>Upcoming Hosted Events</h2>
+<ul>
+  <% @upcoming_created.each do |event| %>
+    <li><%= link_to event.title, event %></li>
+    <li><%= event.description %></li>
+    <li><%= event.location %></li>
+    <li><%= event.date %></li>
+    <hr>
+    <br>
+  <% end %>
+</ul>
+
+<h1>Attended Events</h1>
+
+<h2>Past Events Attended</h2>
+<ul>
+  <% @past_events.each do |event| %> 
+    <li><%= link_to event.title, event %>
+ <% end %>
+</ul>
+
+<h2>Upcoming Events to Attend</h2>
+<ul>
+  <% @upcoming_events.each do |event| %>
+    <li><%= link_to event.title, event %></li>
+  <% end %>
+</ul>

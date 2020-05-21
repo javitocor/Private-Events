@@ -1,0 +1,28 @@
+<h1><%= @event.title %></h1>
+<p>Created by: <%= @event.creator.name %></p>
+
+<p><%= @event.description %></p>
+
+<p><%= @event.location %></p>
+
+<p><%= @event.date %></p>
+
+<% if logged_in? %>
+    <h4>Attendees</h4>
+    <ul>
+        <% @event.attendees.each do |attendee| %>
+            <li><%= link_to attendee.name, attendee %></li>
+        <% end %>
+    </ul>
+    <% if !@event.attendees.to_a.any?(current_user) %>
+        <%= render 'attend_form' %>
+    <% else %>
+        <p>You are already attending this event</p>
+    <% end %>
+<% else %>
+    <p>You must log in or sign up to view the attendees</p>
+<% end %>
+
+<br>
+
+<%= link_to '<< Back', events_path %>
